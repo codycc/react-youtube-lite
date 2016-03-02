@@ -5,7 +5,7 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
-const API_KEY = "AIzaSyAO5w8EnsCAM5PPAgHThSu6SeEA3qMxYl0";
+const API_KEY = "HIDDEN";
 
 
 class App extends Component {
@@ -29,11 +29,30 @@ class App extends Component {
       });
     }
   render() {
-    const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
+     const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
+
+    var logoStyle={
+       width: '100%'
+     };
+
+     var colStyle3 = {
+       padding: 20
+     }
+
+     var colStyle9={
+       paddingTop: 20
+     }
 
     return (
       <div>
-        <SearchBar onSearchTermChange={videoSearch} />
+      <div className="row">
+      <div style = {colStyle3} className = "col-sm-3">
+        <img style={logoStyle} src="/public/youtube-logo.png"/>
+        </div>
+        <div style={colStyle9} className=" col-sm-9">
+        <SearchBar  onSearchTermChange={videoSearch} />
+        </div>
+        </div>
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
         onVideoSelect={selectedVideo => this.setState({selectedVideo})}
