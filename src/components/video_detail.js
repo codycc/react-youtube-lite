@@ -1,11 +1,11 @@
 import React from 'react';
 
-const VideoDetail = ({video}) => {
-  if(!video) {
+const VideoDetail = ({video}) => { // passes in video
+  if(!video) {  // if there isnt a video passed in then return text saying loading
     return <div>Loading...</div>
   }
 
-  const videoId = video.id.videoId;
+  const videoId = video.id.videoId; //grabbing video Id from the api
   const url = `https://www.youtube.com/embed/${videoId}`; // the ` ` provides an easier way to interpolate
 
   return (
@@ -14,8 +14,8 @@ const VideoDetail = ({video}) => {
         <iframe className="embed-response-item" src={url}></iframe>
       </div>
       <div className="details">
-        <div>{video.snippet.title}</div>
-        <div>{video.snippet.description}</div>
+        <div>{video.snippet.title}</div>  {/* grabbing title from api */}
+        <div>{video.snippet.description}</div> {/* grabbing descriptiong from api */}
       </div>
     </div>
   );

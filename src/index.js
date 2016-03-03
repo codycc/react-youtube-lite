@@ -29,7 +29,7 @@ class App extends Component {
       });
     }
   render() {
-     const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
+     const videoSearch = _.debounce((term) => {this.videoSearch(term)},300);
 
     var logoStyle={
        width: '100%'
@@ -45,13 +45,13 @@ class App extends Component {
 
     return (
       <div>
-      <div className="row">
-      <div style = {colStyle3} className = "col-sm-3">
-        <img style={logoStyle} src="/public/youtube-logo.png"/>
-        </div>
-        <div style={colStyle9} className=" col-sm-9">
-        <SearchBar  onSearchTermChange={videoSearch} />
-        </div>
+        <div className="row">
+          <div style = {colStyle3} className = "col-sm-3">
+            <img style={logoStyle} src="/public/youtube-logo.png"/>
+          </div>
+          <div style={colStyle9} className=" col-sm-9">
+          <SearchBar  onSearchTermChange={videoSearch} />
+          </div>
         </div>
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
