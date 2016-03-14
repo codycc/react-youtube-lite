@@ -5,8 +5,7 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
-const API_KEY = "HIDDEN";
-
+const API_KEY = "HIDDEN"; // add new key
 
 class App extends Component {
   constructor(props) {
@@ -50,13 +49,13 @@ class App extends Component {
             <img style={logoStyle} src="/public/youtube-logo.png"/>
           </div>
           <div style={colStyle9} className=" col-sm-9">
-          <SearchBar  onSearchTermChange={videoSearch} />
+          <SearchBar  onSearchTermChange={videoSearch} /> {/* on search term change is passing in video search */}
           </div>
         </div>
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
         onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-         videos={this.state.videos} />
+         videos={this.state.videos} /> {/* sets the state with the current videos */}
       </div>
     );
   }
